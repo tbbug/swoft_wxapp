@@ -42,7 +42,7 @@ class IndexController
         $input=$request->input();
 //        return $input;
 
-        $name = '你好！！世界';
+        $name = '你好！！世界!';
         $notes = [
             $result,
             $name
