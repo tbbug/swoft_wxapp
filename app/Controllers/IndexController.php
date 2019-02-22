@@ -42,7 +42,7 @@ class IndexController
         $input=$request->input();
 //        return $input;
 
-        $name = '你好！！世界!';
+        $name = '你好！！世界!!';
         $notes = [
             $result,
             $name
@@ -79,7 +79,7 @@ class IndexController
      * @return array
      */
     public function task():array {
-        
+
        dump('来了老弟');
 
         $result  = Task::deliver('demo', 'test', ['3'], Task::TYPE_ASYNC);
