@@ -39,6 +39,23 @@ class InitController
         return ['getUser', $code];
     }
 
+    /**
+     * 授权登录接口
+     * 地址:/wxapp/init/authLogin.
+     *
+     * @RequestMapping(route="authLogin", method={RequestMethod::POST})
+     *
+     * @param int $uid
+     *
+     * @return array
+     */
+    public function authLogin(Request $request){
+        $data=$request->input();
+
+
+      return ['msg'=>'登录成功！！','data'=>$data];
+    }
+
 
 
 
