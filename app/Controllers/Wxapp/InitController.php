@@ -54,7 +54,6 @@ class InitController
      */
     public function authLogin(Request $request){
         $data=$request->json();
-        dump($data);
         $session3rd=$request->json('session3rd');
         $openid=$request->json('openid');
         $postdata=[
@@ -67,8 +66,6 @@ class InitController
         ];
 //        dump($session3rd.$openid);
         $session_key= cache()->get($session3rd.$openid);
-//        $session_key=cache($session3rd.$openid);
-        dump($session_key);
         if(empty($session_key)){
             return ['msg'=>'凭证过期，请关闭小游戏后重新登陆！','code'=>4005];
         }
