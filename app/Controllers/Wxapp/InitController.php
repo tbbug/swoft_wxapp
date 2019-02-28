@@ -28,15 +28,18 @@ class InitController
      * 登录初始化接口
      * 地址:/wxapp/init/login.
      *
-     * @RequestMapping(route="login/{code}", method={RequestMethod::GET,RequestMethod::POST})
+     * @RequestMapping(route="login", method={RequestMethod::GET,RequestMethod::POST})
      *
      * @param int $uid
      *
      * @return array
      */
-    public function login(string $code)
+    public function login(Request $request)
     {
-        return ['getUser', $code];
+
+        $code=$request->json('code');
+        $loginData=\App\Logic\MiniLogin::Login($code);
+        return ['getUser'=>$loginData, $code,'data'=>$loginData['data']];
     }
 
     /**
@@ -50,8 +53,26 @@ class InitController
      * @return array
      */
     public function authLogin(Request $request){
-        $data=$request->input();
-
+        $data=$request->json();
+        dump($data);
+        $session3rd=$request->json('session3rd');
+        $openid=$request->json('openid');
+        $postdata=[
+            'session3rd'=>$session3rd,
+            'openid'=>$openid,
+            'rawData'=>$request->json('rawData'),
+            'signature'=>$request->json('signature'),
+            'iv'=> $request->json('iv'),
+            'encryptedData'=> $request->json('encryptedData'),
+        ];
+//        dump($session3rd.$openid);
+        $session_key= cache()->get($session3rd.$openid);
+//        $session_key=cache($session3rd.$openid);
+        dump($session_key);
+        if(empty($session_key)){
+            return ['msg'=>'凭证过期，请关闭小游戏后重新登陆！','code'=>4005];
+        }
+        $res=\App\Logic\MiniLogin::authLogin($session_key,$postdata);
 
       return ['msg'=>'登录成功！！','data'=>$data];
     }
