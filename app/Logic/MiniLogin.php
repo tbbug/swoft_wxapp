@@ -54,11 +54,7 @@ class MiniLogin
     {
         $LoginObj=self::miniGetOpenid($code);
         //初始化cache  确保两分钟内，用户只请求一次登陆接口
-
-        $wx_openid = $LoginObj['openid'];
-        if(empty($wx_openid)){
-            return ['err_code'=>1008,'msg'=>'正在登陆中，请稍后。'];
-        }
+        
         //没有unionid，只获取到openid的情况  ------  unionid没有值，赋值为空
         if( empty($LoginObj['unionid']) && !empty($LoginObj['openid']) ){
             $LoginObj['unionid']='';
