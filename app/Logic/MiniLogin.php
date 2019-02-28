@@ -54,7 +54,7 @@ class MiniLogin
     {
         $LoginObj=self::miniGetOpenid($code);
         //初始化cache  确保两分钟内，用户只请求一次登陆接口
-        
+
         //没有unionid，只获取到openid的情况  ------  unionid没有值，赋值为空
         if( empty($LoginObj['unionid']) && !empty($LoginObj['openid']) ){
             $LoginObj['unionid']='';
@@ -75,10 +75,7 @@ class MiniLogin
         for($i=0;$i<16;$i++){
             $session3rd .=$strPol[rand(0,$max)];
         }
-        dump($session3rd.$openid);
         cache()->set($session3rd.$openid, $session_key,604800);
-        dump(cache($session3rd.$openid));
-
         //用户数据入库
         if(empty($have)){
             $userData=array(
@@ -178,10 +175,9 @@ class MiniLogin
                     "city" => $userInfo['city'],
                     'unionid' => $userInfo['unionId'],
                 ])->getResult();
-                dump($ss);
+
             }else{
                 $fanInfo=$haveFanInfo;
-                dump($haveFanInfo);
             }
             return ['fan'=>array(),'fanInfo'=>$fanInfo];
 
