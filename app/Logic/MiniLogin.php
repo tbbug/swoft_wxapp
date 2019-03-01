@@ -112,7 +112,7 @@ class MiniLogin
         $signature = $rdata["signature"];
         $signature2 = sha1($rdata['rawData'].$session_key);
         if ($signature != $signature2) {
-            $msg = "shibai 1";
+            $msg = "check fail";
             return json(['code'=>'2','message'=>'获取失败',"result"=>$msg]);
         }
         //保存（更新）用户信息

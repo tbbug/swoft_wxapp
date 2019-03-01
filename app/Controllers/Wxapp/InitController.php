@@ -67,7 +67,7 @@ class InitController
 //        dump($session3rd.$openid);
         $session_key= cache()->get($session3rd.$openid);
         if(empty($session_key)){
-            return ['msg'=>'凭证过期，请关闭小游戏后重新登陆！','code'=>4005];
+            return ['msg'=>'凭证过期，请关闭程序后重新登陆！','code'=>4005];
         }
         $res=\App\Logic\MiniLogin::authLogin($session_key,$postdata);
 
