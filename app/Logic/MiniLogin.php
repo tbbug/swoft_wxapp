@@ -163,7 +163,7 @@ class MiniLogin
             //判断是否已有粉丝信息
             $haveFanInfo=Query::table('wx_fan_info')->where('uid',$userId)->limit(1)->get()->getResult();
             if (empty($haveFanInfo)){
-                $ss=Query::table('wx_fan_info')->insert([
+               Query::table('wx_fan_info')->insert([
                     "nickname" => $userInfo['nickName'],
                     "sex" => $userInfo['gender'],
                     'account_id' => 1,
@@ -182,7 +182,6 @@ class MiniLogin
             return ['fan'=>array(),'fanInfo'=>$fanInfo];
 
         } catch (\Exception $e) {
-            dump($e->getMessage());
             return $e->getMessage();
         }
 
