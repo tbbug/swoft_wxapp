@@ -23,7 +23,7 @@ use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 class OrmController
 {
     //新特性测试
-    public function save():array
+    public function save() : array
     {
         $user = new User();
         $user->setName('name');

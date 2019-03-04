@@ -33,8 +33,9 @@ class InitController
      * @param int $uid
      *
      * @return array
+     * 指定返回类型
      */
-    public function login(Request $request)
+    public function login(Request $request) : array
     {
 
         $code=$request->json('code');
