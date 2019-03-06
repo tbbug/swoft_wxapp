@@ -4,6 +4,7 @@
 *.patch
 .idea/
 .git/
+.github/
 runtime/
 vendor/
 temp/
