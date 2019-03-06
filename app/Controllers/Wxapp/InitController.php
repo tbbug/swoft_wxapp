@@ -16,7 +16,7 @@ use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\Http\Server\Bean\Annotation\RequestMethod;
 
 /**
- * RESTful和参数验证测试demo.
+ * 小程序或小游戏初始化授权接口
  *
  * @Controller(prefix="/wxapp/init")
  */
@@ -39,7 +39,13 @@ class InitController
     {
 
         $code=$request->json('code');
+        if(empty($code)){
+            return ['msg'=>'登录参数不能为空！！','code'=>'4004'];
+        }
         $loginData=\App\Logic\MiniLogin::Login($code);
+        if(empty($loginData['code'])){
+            return $loginData;
+        }
         return ['getUser'=>$loginData, $code,'data'=>$loginData['data']];
     }
 
@@ -74,7 +80,6 @@ class InitController
 
       return ['msg'=>'登录成功！！','data'=>$data];
     }
-
 
 
 

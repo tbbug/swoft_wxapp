@@ -63,7 +63,7 @@ class MiniLogin
         }elseif( !empty($LoginObj['unionid']) && !empty($LoginObj['openid']) ){
             $have=Query::table('user')->where('unionid',$LoginObj['unionid'])->limit(1)->get()->getResult();
         }else{
-            return ['err_code'=>404,'msg'=>'登录失败请重新登录，','data'=>$LoginObj];
+            return ['code'=>404,'msg'=>'登录失败请重新登录，','data'=>$LoginObj];
         }
 
         $openid=$LoginObj['openid'];
