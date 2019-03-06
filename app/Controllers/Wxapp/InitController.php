@@ -78,7 +78,7 @@ class InitController
         }
         $res=\App\Logic\MiniLogin::authLogin($session_key,$postdata);
 
-      return ['msg'=>'登录成功！！','data'=>$data];
+      return ['msg'=>'登录成功！！','data'=>$res];
     }
 
 

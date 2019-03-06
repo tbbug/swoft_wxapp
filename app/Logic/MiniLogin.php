@@ -107,13 +107,12 @@ class MiniLogin
     //微信授权登录注册用户信息  ---  user_id   openid   unionid 均设置成了唯一索引，避免并发执行时，向库里面插入多条记录
     public static  function  authLogin($session_key,$rdata)
     {
-
         // 数据签名校验
         $signature = $rdata["signature"];
         $signature2 = sha1($rdata['rawData'].$session_key);
         if ($signature != $signature2) {
             $msg = "check fail";
-            return json(['code'=>'2','message'=>'获取失败',"result"=>$msg]);
+            return ['code'=>'2','message'=>'获取失败',"result"=>$msg];
         }
         //保存（更新）用户信息
         try{
@@ -136,7 +135,7 @@ class MiniLogin
                 $userd = Query::table('user')->where('openid',$openid)->limit(1)->get()->getResult();
             }
             if(empty($userd)){
-                $userd['id'] = Query::table('user')->insert(array('openid'=>$openid, 'unionid'=>$unionid, 'nickname'=>$Udata['nickName'],'create_time'=>time()))->getResult();
+                $userd = Query::table('user')->insert(array('openid'=>$openid, 'unionid'=>$unionid, 'nickname'=>$Udata['nickName'],'create_time'=>time()))->getResult();
             }else{
                 //新用户授权后，更新用户表
                 if(empty($userd)){
@@ -148,7 +147,7 @@ class MiniLogin
                     }
                 }
             }
-            $user=self::setFan($userd['id'],$Udata);
+            $user=self::setFan($userd[0]['id'],$Udata);
             return $user;
 
         }catch (\Exception $e) {
@@ -161,9 +160,9 @@ class MiniLogin
     {
         try {
             //判断是否已有粉丝信息
-            $haveFanInfo=Query::table('wx_fan_info')->where('uid',$userId)->limit(1)->get()->getResult();
+            $haveFanInfo=Query::table('wx_fan_info')->where('uid',$userId)->one()->getResult();
             if (empty($haveFanInfo)){
-               Query::table('wx_fan_info')->insert([
+              Query::table('wx_fan_info')->insert([
                     "nickname" => $userInfo['nickName'],
                     "sex" => $userInfo['gender'],
                     'account_id' => 1,
@@ -174,8 +173,9 @@ class MiniLogin
                     "province" => $userInfo['province'],
                     "city" => $userInfo['city'],
                     'unionid' => $userInfo['unionId'],
+                    'create_time'=>time(),
+                     'update_time'=>time()
                 ])->getResult();
-
             }else{
                 $fanInfo=$haveFanInfo;
             }
