@@ -88,7 +88,7 @@ class MiniLogin
             return ['session3rd'=>$session3rd,'isfirst'=>1,'userdata'=>$userData,'user_id'=>$user_id];
         }else{
             $have['openid']=$openid;
-            return ['userData'=>$have,'session3rd'=>$session3rd,'isfirst'=>0, 'user_id'=>$have['id']];
+            return ['userdata'=>$have,'session3rd'=>$session3rd,'isfirst'=>0, 'user_id'=>$have['id']];
         }
 
     }
@@ -126,28 +126,29 @@ class MiniLogin
 
             //获取用户信息 ----  绑定了公众平台，则会有unionid  ----  登陆时，若是unionid没有值，赋值为空了
             if($unionid){
-                $userd = Query::table('user')->where('unionid',$unionid)->limit(1)->get()->getResult();
+                $userd = Query::table('user')->where('unionid',$unionid)->one()->getResult();
                 if(empty($userd)){
-                    $userd = Query::table('user')->where('openid',$openid)->limit(1)->get()->getResult();
+                    $userd = Query::table('user')->where('openid',$openid)->one()->getResult();
                 }
                 // ---- 没有绑定公众平台的情况
             }else{
-                $userd = Query::table('user')->where('openid',$openid)->limit(1)->get()->getResult();
+                $userd = Query::table('user')->where('openid',$openid)->one()->getResult();
             }
             if(empty($userd)){
                 $userd = Query::table('user')->insert(array('openid'=>$openid, 'unionid'=>$unionid, 'nickname'=>$Udata['nickName'],'create_time'=>time()))->getResult();
             }else{
                 //新用户授权后，更新用户表
                 if(empty($userd)){
-                    Query::table('user')->where('id',$userd['id'])->update(array('nickname'=>$Udata['nickName'],'unionid'=>$unionid))->getResult();
+                 Query::table('user')->where('id',$userd['id'])->update(array('nickname'=>$Udata['nickName'],'unionid'=>$unionid))->getResult();
                 }else{
                     //这一步是为了避免，用户已经授权后，重新更新数据。（只有在用户信息更变时，才会更新用户信息）
                     if( ($Udata['nickName'] != $userd['nickname']) || ($unionid != $userd['unionid'])){
-                        Query::table('user')->where('id',$userd['id'])->update(array('nickname'=>$Udata['nickName'],'unionid'=>$unionid))->getResult();
+                      Query::table('user')->where('id',$userd['id'])->update(array('nickname'=>$Udata['nickName'],'unionid'=>$unionid))->getResult();
+
                     }
                 }
             }
-            $user=self::setFan($userd[0]['id'],$Udata);
+            $user=self::setFan($userd['id'],$Udata);
             return $user;
 
         }catch (\Exception $e) {
