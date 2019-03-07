@@ -37,6 +37,7 @@ return [
         'mode'  => env('HTTP_MODE', SWOOLE_PROCESS),
         'type'  => env('HTTP_TYPE', SWOOLE_SOCK_TCP),
     ],
+    //可适用配置wss（配置ssl）
     'ws'  => [
         // enable handle http request ?
         'enable_http' => env('WS_ENABLE_HTTP', true),
