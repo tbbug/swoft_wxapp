@@ -52,27 +52,29 @@ class IndexController
         return self::fdata();
 
     }
+
     /**
      * 获得文章列表
      * @RequestMapping(route="one", method={RequestMethod::GET,RequestMethod::POST})
      */
     public function one(Request $request)
     {
-        $id=$request->input('id');
-         $ar= self::fdata();
-         foreach ($ar['data'] as $k=>$v){
-           if($v['id']==$id){
-            $aas=$v;
+        $id = $request->input('id');
+        $ar = self::fdata();
+        foreach ($ar['data'] as $k => $v) {
+            if ($v['id'] == $id) {
+                $aas = $v;
 
-           }
+            }
 
-         }
-        return  $aas;
+        }
+        return $aas;
 
     }
 
-    public static function fdata(){
-        $harray =  [
+    public static function fdata()
+    {
+        $harray = [
             "res" => 0,
             "data" => [
                 [
@@ -206,9 +208,30 @@ class IndexController
      * 推送开关
      * @RequestMapping(route="push", method={RequestMethod::GET,RequestMethod::POST})
      */
-    public function push(){
+    public function push(Request $request)
+    {
+        $openid = $request->input('openid');
+        $rdata = [
+            'errcode' => 0,
+            'openId' => $openid,
+            'openPush' => 1
 
-      return ;
+        ];
+        return $rdata;
+    }
+
+    /**
+     * 推送开关
+     * @RequestMapping(route="update", method={RequestMethod::GET,RequestMethod::POST})
+     */
+    public function update(Request $request)
+    {
+        $openid = $request->input('openid');
+        $rdata = [
+            'errcode' => 0,
+            'message'=>"更新用户信息成功"
+        ];
+        return $rdata;
     }
 
 }
