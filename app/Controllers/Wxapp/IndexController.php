@@ -41,4 +41,15 @@ class IndexController
     }
 
 
+    /**
+     * 获得文章列表
+     * @RequestMapping(route="lists", method={RequestMethod::GET,RequestMethod::POST})
+     */
+    public function lists(){
+        $have=Query::table('user')->one()->getResult();
+        return ['getUser'=>'这是一个主页','data'=>$have];
+
+    }
+
+
 }
