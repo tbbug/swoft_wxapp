@@ -85,10 +85,10 @@ class MiniLogin
                 'nickname'=>'游客'
             );
             $user_id = Query::table('user')->insert($userData)->getResult();
-            return ['session3rd'=>$session3rd,'isfirst'=>1,'userdata'=>$userData,'user_id'=>$user_id];
+            return ['session3rd'=>$session3rd,'openid'=>$LoginObj['openid'],'isfirst'=>1,'userdata'=>$userData,'user_id'=>$user_id];
         }else{
             $have['openid']=$openid;
-            return ['userdata'=>$have,'session3rd'=>$session3rd,'isfirst'=>0, 'user_id'=>$have['id']];
+            return ['userdata'=>$have,'openid'=>$openid,'session3rd'=>$session3rd,'isfirst'=>0, 'user_id'=>$have['id']];
         }
 
     }

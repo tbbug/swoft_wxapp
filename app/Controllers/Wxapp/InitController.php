@@ -39,15 +39,15 @@ class InitController
     public function login(Request $request) : array
     {
 
-        $code=$request->json('code');
+        $code=$request->input('code');
         if(empty($code)){
             return ['msg'=>'登录参数不能为空！！','code'=>'4004'];
         }
         $loginData=\App\Logic\MiniLogin::Login($code);
-        if(empty($loginData['code'])){
+        if(!empty($loginData['code'])){
             return $loginData;
         }
-        return ['getUser'=>$loginData, $code,'data'=>$loginData['data']];
+        return ['errcode'=>0,'openid'=>$loginData['openid'],'session_key'=>$loginData['session3rd']];
     }
 
     /**
