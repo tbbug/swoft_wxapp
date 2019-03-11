@@ -229,9 +229,27 @@ class IndexController
         $openid = $request->input('openid');
         $rdata = [
             'errcode' => 0,
-            'message'=>"更新用户信息成功"
+            'message' => "更新用户信息成功"
         ];
         return $rdata;
+    }
+    /**
+     * 推送开关
+     * @RequestMapping(route="about", method={RequestMethod::GET,RequestMethod::POST})
+     */
+    public function about()
+    {
+        $data = [
+            'errcode' => 0,
+            'data' => [['data' => '每日鸡汤插画,
+            每天为你分享鸡汤脑补生活细节,
+            提高设计敏锐性，从品尝插画开始。',
+                'title' => '简介'],
+                ['data' => '喵子工作室',
+                    'title' => '技术支持']]
+
+        ];
+        return $data;
     }
 
 }
