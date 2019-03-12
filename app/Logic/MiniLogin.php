@@ -120,7 +120,7 @@ class MiniLogin
             if(isset($Udata['unionId'])){
                 $unionid = $Udata['unionId'];
             }else{
-                $unionid = 'unc';
+                $unionid = '';
             }
             $openid = $Udata['openId'];
 
