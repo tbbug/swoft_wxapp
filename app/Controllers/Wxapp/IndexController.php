@@ -59,7 +59,7 @@ class IndexController
      */
     public function one(Request $request)
     {
-        $id = $request->input('id');
+        $id = $request->json('id');
         $ar = self::fdata();
         foreach ($ar['data'] as $k => $v) {
             if ($v['id'] == $id) {
@@ -250,6 +250,28 @@ class IndexController
 
         ];
         return $data;
+    }
+
+    /**
+     * 推送开关
+     * @RequestMapping(route="share_setting", method={RequestMethod::GET,RequestMethod::POST})
+     */
+
+    public function share_setting(){
+
+
+        $data = [
+            'errcode' => 0,
+            'data' => [
+                'show_erwer'=>false,
+                'share_text'=>'每天打卡，      开启元气满满的新一天！',
+                'tips_text'=>'长按保存分享打开，开始元气满满的一天！'
+
+            ]
+
+        ];
+        return $data;
+
     }
 
 }
