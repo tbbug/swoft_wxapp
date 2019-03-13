@@ -84,7 +84,7 @@ class IndexController
                     "date" => "2019 / 03 / 09",
                     "title" => "VOL.2345",
                     "url" => "http://m.wufazhuce.com/one/2375",
-                    "img_url" => "http://image.wufazhuce.com/FkNFCXwMly1KFegumB6Wkx_642wH",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/FkNFCXwMly1KFegumB6Wkx_642wH.png",
                     "picture_author" => "摄影 | Niket Nigde",
                     "content" => "不管你做什么，都要做到极致，上班就认真工作，笑就尽情大笑，吃东西时，就像吃最后一餐那样去享受。",
                     "text_authors" => "《绿皮书》"
@@ -96,7 +96,7 @@ class IndexController
                     "date" => "2019 / 03 / 08",
                     "title" => "VOL.2344",
                     "url" => "http://m.wufazhuce.com/one/2374",
-                    "img_url" => "http://image.wufazhuce.com/FsT8f0U1LqlUtdljfKRR8SOMzGH3",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/FsT8f0U1LqlUtdljfKRR8SOMzGH3.png",
                     "picture_author" => "摄影 | Darya Skuratovich",
                     "content" => "没有人会像你想的那样爱你，明白了这一点你就不会再瞎想了。",
                     "text_authors" => "傅首尔"
@@ -108,7 +108,7 @@ class IndexController
                     "date" => "2019 / 03 / 07",
                     "title" => "VOL.2343",
                     "url" => "http://m.wufazhuce.com/one/2373",
-                    "img_url" => "http://image.wufazhuce.com/FrLh24BDmgD87iW8rQq02dOYEJVb",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/FrLh24BDmgD87iW8rQq02dOYEJVb.png",
                     "picture_author" => "摄影 | 桂林大河",
                     "content" => "我们活在世上，必须要爱一些人，伤害一些人，再忘记一些人。",
                     "text_authors" => "苏更生"
@@ -120,7 +120,7 @@ class IndexController
                     "date" => "2019 / 03 / 06",
                     "title" => "VOL.2342",
                     "url" => "http://m.wufazhuce.com/one/2372",
-                    "img_url" => "http://image.wufazhuce.com/Fj7zpzj6kuRpJtElqwUkExkDqKUq",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/Fj7zpzj6kuRpJtElqwUkExkDqKUq.png",
                     "picture_author" => "摄影 | 徐盛哲",
                     "content" => "曾经爱你的每一条街，是我新鲜生活的起点 。",
                     "text_authors" => "李志"
@@ -132,7 +132,7 @@ class IndexController
                     "date" => "2019 / 03 / 05",
                     "title" => "VOL.2341",
                     "url" => "http://m.wufazhuce.com/one/2371",
-                    "img_url" => "http://image.wufazhuce.com/FvUWnb7Rq8Lk45XcEnffiK4_6NRb",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/FvUWnb7Rq8Lk45XcEnffiK4_6NRb.png",
                     "picture_author" => "插画 | 狐狸狐狸鱼",
                     "content" => "一个人思考不好，爱不好，睡不好，归根结底，都是因为吃得不好。",
                     "text_authors" => "伍尔夫"
@@ -144,7 +144,7 @@ class IndexController
                     "date" => "2019 / 03 / 04",
                     "title" => "VOL.2340",
                     "url" => "http://m.wufazhuce.com/one/2370",
-                    "img_url" => "http://image.wufazhuce.com/Fg_0wVcmZKlR7lF6qickNf0Sp8ju",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/Fg_0wVcmZKlR7lF6qickNf0Sp8ju.png",
                     "picture_author" => "摄影 | Vitor Pinto",
                     "content" => "“为了家人/爱人努力活下去”都不如一句“某某剧要回归了”更能让我燃起对生活的欲望。",
                     "text_authors" => "李濛"
@@ -156,7 +156,7 @@ class IndexController
                     "date" => "2019 / 03 / 03",
                     "title" => "VOL.2339",
                     "url" => "http://m.wufazhuce.com/one/2369",
-                    "img_url" => "http://image.wufazhuce.com/Fg5TR-x6bZSSG2QL4lEUuzfT0-V8",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/Fg5TR-x6bZSSG2QL4lEUuzfT0-V8.png",
                     "picture_author" => "摄影 | Yoav Aziz",
                     "content" => "堵车是最让人难受的事情：你爱开车，你也的确在开车，但你就是没有真正在开车。其实我们做很多事情都是这样：你爱这件事，你也的确在做这件事，但你就是没有真正在做这件事。",
                     "text_authors" => "韩寒"
@@ -168,7 +168,7 @@ class IndexController
                     "date" => "2019 / 03 / 02",
                     "title" => "VOL.2338",
                     "url" => "http://m.wufazhuce.com/one/2368",
-                    "img_url" => "http://image.wufazhuce.com/FrBuuL1ACR8Lq64VzXyY96BdqIB2",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/FrBuuL1ACR8Lq64VzXyY96BdqIB2.png",
                     "picture_author" => "插画 | 林庭",
                     "content" => "真心是最容易被辜负的东西，辜负一份工作，你得损失钱，辜负一次合作，你得损失机会，辜负真心能损失什么呢？这么看来，真心一文不值，在不需要真心的人眼里。 ",
                     "text_authors" => "苏更生"
@@ -180,7 +180,7 @@ class IndexController
                     "date" => "2019 / 03 / 01",
                     "title" => "VOL.2337",
                     "url" => "http://m.wufazhuce.com/one/2367",
-                    "img_url" => "http://image.wufazhuce.com/Fh0XS7aucYI1BxpNDyJ6QBV9BQS-",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/Fh0XS7aucYI1BxpNDyJ6QBV9BQS-.png",
                     "picture_author" => "摄影 | Taneli Lahtinen",
                     "content" => "我们总是忘了事情是怎么开始的，却执着于控制它结束的方式。“事情不应该这么结束”，于是千千万万段感情继续着，以奇形怪状的式样。",
                     "text_authors" => "颜卤煮"
@@ -192,7 +192,7 @@ class IndexController
                     "date" => "2019 / 02 / 28",
                     "title" => "VOL.2336",
                     "url" => "http://m.wufazhuce.com/one/2366",
-                    "img_url" => "http://image.wufazhuce.com/FsurJHjIg2h50n89b6zFoQHZnnif",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/FsurJHjIg2h50n89b6zFoQHZnnif.png",
                     "picture_author" => "摄影 | Aliaksei Lepik",
                     "content" => "自己做出的选择，才能建立更牢靠的羁绊。",
                     "text_authors" => "《小偷家族》"
@@ -265,6 +265,7 @@ class IndexController
             'data' => [
                 'show_erwer'=>false,
                 'share_text'=>'每天打卡，      开启元气满满的新一天！',
+                'erweim_url'=>'https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/xcxm.jpg',
                 'tips_text'=>'长按保存分享打开，开始元气满满的一天！'
 
             ]
