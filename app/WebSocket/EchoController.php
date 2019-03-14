@@ -31,7 +31,7 @@ class EchoController implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
-        $server->push($fd, 'hello, welcome! :)');
+        $server->push($fd, '连接成功');
     }
 
     /**
@@ -40,8 +40,15 @@ class EchoController implements HandlerInterface
      */
     public function onMessage(Server $server, Frame $frame)
     {
-        $server->push($frame->fd, '听说你：' . $frame->data);
-        $server->push($frame->fd, 'hello, I have received your message: ' . $frame->data);
+        $array=[
+            'user_id'=> $frame->fd,
+        'type'=> 'else',
+        'msg'=> $frame->data,
+        'send_time'=> date("Y年m月d日 H:i:s",time())
+        ];
+//        $server->push($frame->fd, json_encode($array));
+        \Swoft::$server->sendToAll(json_encode($array));
+
     }
 
     /**

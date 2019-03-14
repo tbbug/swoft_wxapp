@@ -29,10 +29,10 @@ return [
     'provider'     => require __DIR__ . DS . 'provider.php',
     'devtool' => [
         // 是否开启 DevTool，默认值为 false
-        'enable' => true,
+        'enable' => false,
         // (可选)前台运行服务器时，是否打印事件调用到 Console
-        'logEventToConsole' => true,
+        'logEventToConsole' => false,
         // (可选)前台运行服务器时，是否打印 HTTP 请求到 Console
-        'logHttpRequestToConsole' => true,
+        'logHttpRequestToConsole' => false,
     ],
 ];

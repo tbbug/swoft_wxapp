@@ -14,7 +14,9 @@ use Swoft\Http\Message\Server\Request;
 use Swoft\Http\Server\Bean\Annotation\Controller;
 use Swoft\Http\Server\Bean\Annotation\RequestMapping;
 use Swoft\Http\Server\Bean\Annotation\RequestMethod;
+use Swoft\HttpClient\Client;
 use Swoft\Db\Query;
+use Swoft\Task\Task;
 
 /**
  * 小程序或小游戏初始化授权接口
@@ -263,7 +265,7 @@ class IndexController
         $data = [
             'errcode' => 0,
             'data' => [
-                'show_erwer'=>false,
+                'show_erwer'=>true,
                 'share_text'=>'每天打卡，      开启元气满满的新一天！',
                 'erweim_url'=>'https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/xcxm.jpg',
                 'tips_text'=>'长按保存分享打开，开始元气满满的一天！'
@@ -273,6 +275,18 @@ class IndexController
         ];
         return $data;
 
+    }
+
+    /**
+     * 投票
+     * @RequestMapping(route="crtts", method={RequestMethod::GET,RequestMethod::POST})
+     *
+     */
+
+    public function crtts(){
+
+     
+      //
     }
 
 }

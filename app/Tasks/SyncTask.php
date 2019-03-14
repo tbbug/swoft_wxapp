@@ -168,7 +168,7 @@ class SyncTask
      * crontab定时任务
      * 每一秒执行一次
      *
-     * @Scheduled(cron="* * * * * *")
+     * @Scheduled(cron="5 * * * * *")
      */
     public function cronTask()
     {
@@ -181,9 +181,9 @@ class SyncTask
      *
      * @Scheduled(cron="3-5 * * * * *")
      */
-    public function cronooTask()
-    {
-        echo time() . "第3-5秒执行\n";
-        return 'cron';
-    }
+//    public function cronooTask()
+//    {
+//        echo time() . "第3-5秒执行\n";
+//        return 'cron';
+//    }
 }
