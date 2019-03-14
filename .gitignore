@@ -9,6 +9,7 @@ vendor/
 temp/
 *.lock
 .phpintel/
+.config/properties/app.php
 .env
 .DS_Store
 public/devtool/
