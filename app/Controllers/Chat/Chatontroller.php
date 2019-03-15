@@ -31,7 +31,7 @@ class Chatontroller implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
-        $server->push($fd, '连接成功');
+//        $server->push($fd, '连接成功');
     }
 
     /**
@@ -46,6 +46,13 @@ class Chatontroller implements HandlerInterface
             'msg'=> $frame->data,
             'send_time'=> date("Y年m月d日 H:i:s",time())
         ];
+        //用户绑定fd
+        $server->bind($frame->fd, $frame->data['uid']);
+        $conn_list = $server->getClientList(0, 10);
+        $connection = $server->connection_info(9);
+        $server->push($frame->fd, json_encode($connection));
+        $server->push($frame->fd, json_encode($conn_list,true));
+
 //        $server->push($frame->fd, json_encode($array));
         \Swoft::$server->broadcast(json_encode($array),[],[$frame->fd],$frame->fd);
 
