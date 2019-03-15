@@ -47,7 +47,7 @@ class Chatontroller implements HandlerInterface
             'send_time'=> date("Y年m月d日 H:i:s",time())
         ];
 //        $server->push($frame->fd, json_encode($array));
-        \Swoft::$server->sendToAll(json_encode($array));
+        \Swoft::$server->broadcast(json_encode($array),[],[$frame->fd],$frame->fd);
 
     }
 
