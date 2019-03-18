@@ -284,8 +284,8 @@ class IndexController
      */
 
     public function crtts(){
+           
 
-     
       //
     }
 
