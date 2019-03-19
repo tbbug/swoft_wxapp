@@ -31,4 +31,10 @@ class IndexController{
     {
         return ['item0', 'item1'];
     }
+
+
+    public function login():array {
+
+        return compact();
+    }
 }
