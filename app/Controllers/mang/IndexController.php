@@ -32,7 +32,9 @@ class IndexController{
         return ['item0', 'item1'];
     }
 
-
+  /**
+   * 后台管理登录
+   */
     public function login():array {
 
         return compact();
