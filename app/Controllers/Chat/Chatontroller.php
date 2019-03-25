@@ -21,7 +21,7 @@ class Chatontroller implements HandlerInterface
      */
     public function checkHandshake(Request $request, Response $response): array
     {
-        return [0, $response];
+        return [0, $response];//meishijin
     }
 
     /**
