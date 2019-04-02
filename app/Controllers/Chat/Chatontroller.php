@@ -47,9 +47,10 @@ class Chatontroller implements HandlerInterface
             'send_time'=> date("Y年m月d日 H:i:s",time())
         ];
         //获取用户信息
+        //生成聊天记录文件在本地
         //通过uid
 
-        
+
         //用户绑定fd
         $server->bind($frame->fd, $frame->data['uid']);
         $conn_list = $server->getClientList(0, 10);
