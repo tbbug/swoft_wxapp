@@ -40,12 +40,17 @@ class Chatontroller implements HandlerInterface
      */
     public function onMessage(Server $server, Frame $frame)
     {
+        $msg=$frame->data;
+        $msg=json_decode($msg,true);
         $array=[
-            'user_id'=> $frame->fd,
+            'user_id'=> $msg['user_id'],
             'type'=> 'else',
-            'msg'=> $frame->data,
+            'avatar'=> $msg['avatar'],
+            'msg'=> $msg['msg'],
             'send_time'=> date("Y年m月d日 H:i:s",time())
         ];
+//        $ss=json_decode($frame->data,true);
+//        dump($ss['msg']);
         //获取用户信息
         //生成聊天记录文件在本地
         //地图
@@ -53,12 +58,13 @@ class Chatontroller implements HandlerInterface
 
 
         //用户绑定fd
-        $server->bind($frame->fd, $frame->data['uid']);
+        $server->bind($frame->fd, $frame->data['user_id']);
         $conn_list = $server->getClientList(0, 10);
         $connection = $server->connection_info(9);
-        $server->push($frame->fd, json_encode($connection));
-        $server->push($frame->fd, json_encode($conn_list,true));
+//        $server->push($frame->fd, $array);
+//        $server->push($frame->fd, json_encode($conn_list));
 
+//        $server->push($frame->fd, $frame->data);
 //        $server->push($frame->fd, json_encode($array));
         \Swoft::$server->broadcast(json_encode($array),[],[$frame->fd],$frame->fd);
 
