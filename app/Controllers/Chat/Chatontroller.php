@@ -48,6 +48,7 @@ class Chatontroller implements HandlerInterface
         ];
         //获取用户信息
         //生成聊天记录文件在本地
+        //地图
         //通过uid
 
 
