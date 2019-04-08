@@ -82,7 +82,7 @@ class IndexController
                 [
                     "content_type" => 0,
                     "category" => 0,
-                    "id" => "2375",
+                    "id" => "2376",
                     "date" => "2019 / 04 / 08",
                     "title" => "逆行的程序员",
                     "url" => "http://m.wufazhuce.com/one/2375",
@@ -297,18 +297,6 @@ class IndexController
 
     public function crtts(){
 
-=======
-<<<<<<< HEAD
-
-
-<<<<<<< HEAD
-=======
-=======
-        
->>>>>>> b8181b945f5e0703dc898b766bcaab906d44ab88
->>>>>>> b6d7b143353104e26020e8daab6c05b0f1fe5b6e
->>>>>>> 0e2dadb188388f08c8b993a5beb3e96c302fda04
-      //
     }
 
 }
