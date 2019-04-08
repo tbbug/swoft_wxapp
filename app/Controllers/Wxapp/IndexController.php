@@ -296,8 +296,12 @@ class IndexController
      */
 
     public function crtts(){
+<<<<<<< HEAD
 
 
+=======
+        
+>>>>>>> b8181b945f5e0703dc898b766bcaab906d44ab88
       //
     }
 
