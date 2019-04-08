@@ -277,7 +277,7 @@ class IndexController
         $data = [
             'errcode' => 0,
             'data' => [
-                'show_erwer'=>true,
+                'show_erwer'=>false,
                 'share_text'=>'每天打卡，      开启元气满满的新一天！',
                 'erweim_url'=>'https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/xcxm.jpg',
                 'tips_text'=>'长按保存分享打开，开始元气满满的一天！'
@@ -297,7 +297,17 @@ class IndexController
 
     public function crtts(){
 
+=======
+<<<<<<< HEAD
 
+
+<<<<<<< HEAD
+=======
+=======
+        
+>>>>>>> b8181b945f5e0703dc898b766bcaab906d44ab88
+>>>>>>> b6d7b143353104e26020e8daab6c05b0f1fe5b6e
+>>>>>>> 0e2dadb188388f08c8b993a5beb3e96c302fda04
       //
     }
 
