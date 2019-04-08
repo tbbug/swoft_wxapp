@@ -89,7 +89,7 @@ class IndexController
                     "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/87ea5e7576b543fdb578f66b72dc4f78.jpeg",
                     "picture_author" => "程序员",
                     "content" => "程序员深夜逆行被拦后崩溃欲自杀：老板在催我！女朋友在催我！",
-                    "text_authors" => "《绿皮书》"
+                    "text_authors" => "《CSDN程序员》"
                 ],
                 [
                     "content_type" => 0,
@@ -296,12 +296,8 @@ class IndexController
      */
 
     public function crtts(){
-<<<<<<< HEAD
 
 
-=======
-        
->>>>>>> b8181b945f5e0703dc898b766bcaab906d44ab88
       //
     }
 
