@@ -83,6 +83,18 @@ class IndexController
                     "content_type" => 0,
                     "category" => 0,
                     "id" => "2375",
+                    "date" => "2019 / 04 / 08",
+                    "title" => "逆行的程序员",
+                    "url" => "http://m.wufazhuce.com/one/2375",
+                    "img_url" => "https://marioblog-1251682606.cos.ap-guangzhou.myqcloud.com/tg/87ea5e7576b543fdb578f66b72dc4f78.jpeg",
+                    "picture_author" => "程序员",
+                    "content" => "程序员深夜逆行被拦后崩溃欲自杀：老板在催我！女朋友在催我！",
+                    "text_authors" => "《绿皮书》"
+                ],
+                [
+                    "content_type" => 0,
+                    "category" => 0,
+                    "id" => "2375",
                     "date" => "2019 / 03 / 09",
                     "title" => "VOL.2345",
                     "url" => "http://m.wufazhuce.com/one/2375",
@@ -284,7 +296,16 @@ class IndexController
      */
 
     public function crtts(){
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+
+=======
+        
+>>>>>>> b8181b945f5e0703dc898b766bcaab906d44ab88
+>>>>>>> b6d7b143353104e26020e8daab6c05b0f1fe5b6e
       //
     }
 
