@@ -88,7 +88,7 @@ class Chatontroller implements HandlerInterface
     public function setChatJson(array $chat):array {
         $json_chat=self::getChatJson();
 //        $json_chat=array();
-        if(count($json_chat)==20){
+        if(count($json_chat)>=20){
             array_shift($json_chat);//去除第一个元素
         }
         array_push($json_chat,$chat);//入栈最新元素
