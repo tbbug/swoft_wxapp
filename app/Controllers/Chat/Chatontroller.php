@@ -8,6 +8,8 @@ use Swoft\WebSocket\Server\Bean\Annotation\WebSocket;
 use Swoft\WebSocket\Server\HandlerInterface;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
+use Swoft\Db\Query;
+use Swoft\Cache\Cache;
 
 /**
  * Class EchoController
@@ -31,7 +33,9 @@ class Chatontroller implements HandlerInterface
      */
     public function onOpen(Server $server, Request $request, int $fd)
     {
-//        $server->push($fd, '连接成功');
+//        $msg=json_encode(self::getChatJson($openid));
+//        dump($request->post());
+//         $server->push($fd, $msg);
     }
 
     /**
@@ -42,31 +46,28 @@ class Chatontroller implements HandlerInterface
     {
         $msg=$frame->data;
         $msg=json_decode($msg,true);
-        $array=[
-            'user_id'=> $msg['user_id'],
-            'type'=> 'else',
-            'avatar'=> $msg['avatar'],
-            'msg'=> $msg['msg'],
-            'send_time'=> date("Y年m月d日 H:i:s",time())
-        ];
-//        $ss=json_decode($frame->data,true);
-//        dump($ss['msg']);
-        //获取用户信息
-        //生成聊天记录文件在本地
-        //地图
-        //通过uid
+        $have = Query::table('user')->where('openid',$msg['openid'])->one()->getResult();
+        $user_id=$have['id'];
+        if($msg['type']=='getchatjson'){
+            $msgs=json_encode(self::getChatJson($msg['openid']));
+            $server->push($frame->fd, $msgs);
+        }else{
+            $array=[
+                'user_id'=> $user_id,
+                'openid'=> $msg['openid'],
+                'type'=> 'else',
+                'avatar'=> $msg['avatar'],
+                'msg'=> $msg['msg'],
+                'send_time'=> date("Y年m月d日 H:i:s",time())
+            ];
+            self::setChatJson($array);
+            //用户绑定fd
+            $server->bind($frame->fd, $user_id);
+            $re_array=array();
+            array_push($re_array,$array);
+            \Swoft::$server->broadcast(json_encode($re_array),[],[$frame->fd],$frame->fd);
+        }
 
-
-        //用户绑定fd
-        $server->bind($frame->fd, $frame->data['user_id']);
-        $conn_list = $server->getClientList(0, 10);
-        $connection = $server->connection_info(9);
-//        $server->push($frame->fd, $array);
-//        $server->push($frame->fd, json_encode($conn_list));
-
-//        $server->push($frame->fd, $frame->data);
-//        $server->push($frame->fd, json_encode($array));
-        \Swoft::$server->broadcast(json_encode($array),[],[$frame->fd],$frame->fd);
 
     }
 
@@ -76,6 +77,41 @@ class Chatontroller implements HandlerInterface
      */
     public function onClose(Server $server, int $fd)
     {
+//        dump($server);
         // do something. eg. record log, unbind user ...
+    }
+
+    /**
+     * @return array
+     * 聊天消息池保存近20条消息
+     */
+    public function setChatJson(array $chat):array {
+        $json_chat=self::getChatJson();
+//        $json_chat=array();
+        if(count($json_chat)==20){
+            array_shift($json_chat);//去除第一个元素
+        }
+        array_push($json_chat,$chat);//入栈最新元素
+            cache()->set('chatJson', $json_chat);
+        return $json_chat;
+    }
+
+    /**
+     * @return array
+     * 获取聊天记录
+     */
+    public function getChatJson(string $openid=''):array {
+      $json_chat= cache()->get('chatJson');
+      if(!$json_chat){
+          $json_chat=array();
+      }
+      if(!empty($openid)){
+       foreach ($json_chat as $k=>$v){
+       if($openid==$v['openid']){
+           $json_chat[$k]['type']='self';
+       }
+       }
+      }
+      return $json_chat;
     }
 }

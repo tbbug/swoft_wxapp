@@ -170,8 +170,9 @@ class IndexController
         $array=self::fdata();
         dump($array);
 //        $have = Query::table('content_list')->batchInsert($array)->getResult();
-        $have = Query::table('content_list')->batchInsert($array['data'])->getResult();
+//        $have = Query::table('content_list')->batchInsert($array['data'])->getResult();
 //        $have = Query::table('user')->get()->getResult();
+        $have = Query::table('user')->where('openid','o28sK0X9D2SyHG8lAq0ayaQdI0BM')->one()->getResult();
 
         return $have;
     }
